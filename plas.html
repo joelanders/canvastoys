@@ -1,0 +1,43 @@
+<canvas id="plas" width="32" height="32">
+</canvas>
+
+<script>
+var canvas = document.getElementById('plas');
+var context = canvas.getContext('2d');
+
+var pix = function(x, y, r, g, b) {
+  context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+  context.fillRect(x, y, 1, 1);
+}
+
+var red = function(x, y, t) {
+  return( Math.floor(128.0 + 128.0*Math.cos( 2*3.14159*x/32 + 1.1*t )) );
+}
+
+var green = function(x, y, t) {
+  return( Math.floor(128.0 + 64.0*Math.sin( 2*3.14159*y/32 + 1.2*t ) + 64.0*Math.sin( 1.2*3.14159*y/32 + t )) );
+}
+
+var blue = function(x, y, t) {
+  return( Math.floor(128.0 + 128.0*Math.sin( 1.5*3.14159*x/32 + t )) );
+}
+
+var t = 0;
+
+var draw = function() {
+  for(x=0;x<=31;x++) {
+    for(y=0;y<=31;y++) {
+      pix(x,y,red(x,y,t),green(x,y,t),blue(x,y,t));
+    }
+  }
+  t = t + 0.100;
+  window.requestAnimationFrame(draw);
+}
+
+window.requestAnimationFrame(draw);
+
+</script>
+
+<style type="text/css">
+canvas 	{width:100%;height:100%;}
+</style>
