@@ -11,15 +11,15 @@ var pix = function(x, y, r, g, b) {
 }
 
 var red = function(x, y, t) {
-  return( Math.floor(128.0 + 128.0*Math.cos( 2*3.14159*x/32 + 1.1*t )) );
+  return( Math.floor(192.0 + 64.0*Math.cos( (x*x-y*y)/500 + t )) );
 }
 
 var green = function(x, y, t) {
-  return( Math.floor(128.0 + 64.0*Math.sin( 2*3.14159*y/32 + 1.2*t ) + 64.0*Math.sin( 1.2*3.14159*y/32 + t )) );
+  return( Math.floor(192.0 + 64.0*Math.sin( (x*x*Math.cos(t/4)+y*y*Math.sin(t/3))/200 ) ) );
 }
 
 var blue = function(x, y, t) {
-  return( Math.floor(128.0 + 128.0*Math.sin( 1.5*3.14159*x/32 + t )) );
+  return( Math.floor(192.0 + 64.0*Math.sin( 5*Math.sin(t/9) + ((x-100)*(x-100)+(y-100)*(y-100))/1300) ));
 }
 
 var t = 0;
