@@ -7,3 +7,5 @@ http://joelanders.net/canvastoys/xor3d.html
 http://joelanders.net/canvastoys/fake3d.html
 
 http://joelanders.net/canvastoys/plas.html
+
+http://joelanders.net/canvastoys/rainbow.lolipop.html
