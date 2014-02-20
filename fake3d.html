@@ -1,0 +1,52 @@
+<canvas id="plas" width="320" height="200">
+</canvas>
+
+<script>
+var canvas = document.getElementById('plas');
+var context = canvas.getContext('2d');
+
+var circle = function(x, y, r, c) {
+  context.beginPath();
+  context.arc(x, y, r, 0, 2*Math.PI, false);
+  context.fillStyle = "rgb(" + c + ", 240, 128)";
+  context.fill();
+}
+
+var blank = function() {
+  context.fillStyle = "rgb(64,96,255)";
+  context.fillRect(0,0,320,240);
+}
+
+var osc = function( amp, origin, phase ) {
+  return origin + amp * Math.sin( phase );
+}
+
+var circles = function(t, c) {
+  for( var i=1; i<=6; i++ ) {
+    circle(
+        osc( 100, 160, osc( Math.PI, 0, i+t/(i+4)) ),
+        osc( 60,  120, osc( Math.PI, 0, i+t/(i+5)) ),
+        osc( 15,  20,  osc( Math.PI, 0, i+t/(i+6)) ),
+        Math.floor(osc( 96,  144,  osc( Math.PI, 0, i+t/(i+6)) )) );
+  }
+}
+
+var t = 0;
+
+var draw = function() {
+
+  blank();
+  t = t + 0.1;
+  circles( t, 0 );
+
+  window.requestAnimationFrame(draw);
+}
+
+window.requestAnimationFrame(draw);
+
+</script>
+
+<style type="text/css">
+canvas 	{width:100%;height:100%;padding:0;}
+body {margin:0;}
+</style>
