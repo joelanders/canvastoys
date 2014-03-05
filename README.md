@@ -9,3 +9,5 @@ http://joelanders.net/canvastoys/fake3d.html
 http://joelanders.net/canvastoys/plas.html
 
 http://joelanders.net/canvastoys/rainbow.lolipop.html
+
+http://joelanders.net/canvastoys/moire.html
